@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Κατηγορίες: {{ category?.title }} </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let p of products" [routerLink]="['/product/' + p._id]">
+    <img [src]="imageBase + p.photo" alt="">
+    <ion-card-header>
+      <ion-card-subtitle>{{ p.price }} &euro;</ion-card-subtitle>
+      <ion-card-title>{{ p.title }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{ p.miniDesc }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
